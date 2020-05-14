@@ -1,31 +1,37 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+    <div class="bg-image">
+        <div class="bg-text">
+            <h1 style="font-size:50px">SUV LIBRARY</h1>
+            <p class="lead">"Libraries store the energy that fuels the imagination. They open up windows to the world and inspire us to explore and achieve, and contribute to improving our quality of life."</p>
+            <p><a href="" class="btn btn-primary btn-lg">Join now &raquo;</a></p>
+        </div>
+    </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+<div class="row" style="padding-top:20px">
+    <div class="col-md-2">
+        <img src="~/Content/images/Admin.png" width="128" height="198" />
+    </div>
+    <div class="col-md-3">
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            <br /><br />
+            <b>Suvankar Pradhan</b>
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>Creator of this site</p>
+        <p>(Library Management site)</p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-7">
+        <h2>SUV Library</h2>
+        <p>
+            The SUV Library, foremost among the libraries in India, is one of the four designated libraries entitled to receive under the Delivery of Books and Newspapers (Public Libraries) Act, 1954 a copy of every publication published anywhere in the country.
+            The library is a permanent depository of all reading and printed materials produced in India, or written by any foreigner, wherever published and in whatever language.
+            <span id="dots">...</span><br />
+            <span id="more">
+                The origin of the SUV Library is traced to the former Calcutta Public Library, established in the first half of the 19th century.
+                The Calcutta Public Library was established largely at the initiative of Mr. J. H. Stoqueler, the Editor of the Englishman.
+            </span>
+        </p>
+        <p><a class="btn btn-default" onclick="readMore()" id="myBtn">Read more</a></p>
     </div>
 </div>
