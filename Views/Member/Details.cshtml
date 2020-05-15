@@ -1,0 +1,58 @@
+﻿@model Library_Management_System.Models.MemberRecord
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MemberRecord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mem_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mem_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mem_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mem_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mem_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mem_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mem_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mem_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mem_add)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mem_add)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.mem_id }) |
+    @Html.ActionLink("Back to List", "GetAllMembers")
+</p>

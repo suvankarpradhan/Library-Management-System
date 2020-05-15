@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Library_Management_System.Models.MemberRecord>
+
+@{
+    ViewBag.Title = "GetAllMembers";
+}
+
+<h2>GetAllMembers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mem_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mem_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mem_email)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mem_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mem_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mem_email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.mem_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.mem_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.mem_id })
+        </td>
+    </tr>
+}
+
+</table>
