@@ -1,0 +1,58 @@
+﻿@model Library_Management_System.Models.BookRecord
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookRecord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.copies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.copies)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book_id }) |
+    @Html.ActionLink("Back to List", "GetAllBooks")
+</p>

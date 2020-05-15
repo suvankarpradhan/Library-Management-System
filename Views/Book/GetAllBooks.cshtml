@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Library_Management_System.Models.BookRecord>
+
+@{
+    ViewBag.Title = "GetAllBooks";
+}
+
+<h2>GetAllBooks</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.book_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author_name)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.book_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.book_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.book_id })
+        </td>
+    </tr>
+}
+
+</table>
