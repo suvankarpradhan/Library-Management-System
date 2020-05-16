@@ -131,6 +131,7 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibrarianController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="DbModel\bookRecod.cs">
@@ -245,6 +246,7 @@
     <Content Include="Views\Transaction\Index.cshtml" />
     <Content Include="Views\Transaction\Details.cshtml" />
     <Content Include="Views\Transaction\Edit.cshtml" />
+    <Content Include="Views\Librarian\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

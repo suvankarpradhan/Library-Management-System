@@ -8,6 +8,7 @@ using Library_Management_System.DbOperations;
 
 namespace Library_Management_System.Controllers
 {
+    [Authorize]
     public class MemberController : Controller
     {
         MemberTable memberTable = null;
