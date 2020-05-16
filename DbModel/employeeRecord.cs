@@ -20,5 +20,7 @@ namespace Library_Management_System.DbModel
         public string emp_phone { get; set; }
         public string emp_pass { get; set; }
         public string emp_add { get; set; }
+        public string role { get; set; }
+        public string username { get; set; }
     }
 }

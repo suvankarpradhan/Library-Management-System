@@ -18,8 +18,10 @@ namespace Library_Management_System.DbOperations
                     emp_name = record.emp_name,
                     emp_email = record.emp_email,
                     emp_phone = record.emp_phone,
+                    username = record.username,
                     emp_pass = record.emp_pass,
-                    emp_add = record.emp_add
+                    emp_add = record.emp_add,
+                    role = record.role
                 };
                 context.employeeRecord.Add(emp);
                 context.SaveChanges();
@@ -52,8 +54,10 @@ namespace Library_Management_System.DbOperations
                     emp_name = x.emp_name,
                     emp_email = x.emp_email,
                     emp_phone = x.emp_phone,
+                    username = x.username,
                     emp_pass = x.emp_pass,
-                    emp_add = x.emp_add
+                    emp_add = x.emp_add,
+                    role = x.role
                 }).FirstOrDefault();
                 return record;
             }
@@ -67,8 +71,10 @@ namespace Library_Management_System.DbOperations
                 employee.emp_name = record.emp_name;
                 employee.emp_email = record.emp_email;
                 employee.emp_phone = record.emp_phone;
+                employee.username = record.username;
                 employee.emp_pass = record.emp_pass;
                 employee.emp_add = record.emp_add;
+                employee.role = record.role;
                 context.Entry(employee).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
                 return true;

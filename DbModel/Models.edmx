@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="bookRecod">
           <Key>
             <PropertyRef Name="book_id" />
@@ -25,6 +25,8 @@
           <Property Name="emp_phone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="emp_pass" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="emp_add" Type="varchar" MaxLength="100" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="memberRecord">
           <Key>
@@ -55,8 +57,7 @@
           <EntitySet Name="memberRecord" EntityType="Self.memberRecord" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="transactionRecord" EntityType="Self.transactionRecord" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -80,6 +81,8 @@
           <Property Name="emp_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="emp_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="emp_add" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="memberRecord">
           <Key>
@@ -130,6 +133,8 @@
           <EntitySetMapping Name="employeeRecord">
             <EntityTypeMapping TypeName="LibraryModel.employeeRecord">
               <MappingFragment StoreEntitySet="employeeRecord">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="role" ColumnName="role" />
                 <ScalarProperty Name="emp_id" ColumnName="emp_id" />
                 <ScalarProperty Name="emp_name" ColumnName="emp_name" />
                 <ScalarProperty Name="emp_email" ColumnName="emp_email" />

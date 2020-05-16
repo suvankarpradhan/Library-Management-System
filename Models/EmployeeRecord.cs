@@ -18,5 +18,9 @@ namespace Library_Management_System.Models
         [Required]
         public string emp_pass { get; set; }
         public string emp_add { get; set; }
+        [Required]
+        public string role { get; set; }
+        [Required]
+        public string username { get; set; }
     }
 }

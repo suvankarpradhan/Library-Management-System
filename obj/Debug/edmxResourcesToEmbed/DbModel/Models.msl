@@ -15,6 +15,8 @@
     <EntitySetMapping Name="employeeRecord">
       <EntityTypeMapping TypeName="LibraryModel.employeeRecord">
         <MappingFragment StoreEntitySet="employeeRecord">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="role" ColumnName="role" />
           <ScalarProperty Name="emp_id" ColumnName="emp_id" />
           <ScalarProperty Name="emp_name" ColumnName="emp_name" />
           <ScalarProperty Name="emp_email" ColumnName="emp_email" />
