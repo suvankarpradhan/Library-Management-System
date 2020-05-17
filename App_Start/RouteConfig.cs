@@ -13,10 +13,30 @@ namespace Library_Management_System
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
-                name: "Librarian",
-                url: "library/{Login}",
-                defaults: new { controller = "Librarian", action = "Login", id = UrlParameter.Optional }
+                name: "Library",
+                url: "library",
+                defaults: new { controller = "Account", action = "Login"}
             );
+            routes.MapRoute(
+                name: "Library-login",
+                url: "library/{Login}",
+                defaults: new { controller = "Account", action = "Login" }
+            );
+            routes.MapRoute(
+                name: "Admin",
+                url: "admin",
+                defaults: new { controller = "Account", action = "Login" }
+            );
+            routes.MapRoute(
+                name: "Admin-login",
+                url: "admin/{Login}",
+                defaults: new { controller = "Account", action = "Login" }
+            );
+            routes.MapRoute(
+               name: "Account",
+               url: "account",
+               defaults: new { controller = "Account", action = "Login" }
+           );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

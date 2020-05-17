@@ -10,7 +10,7 @@ using System.Web.Security;
 
 namespace Library_Management_System.Controllers
 {
-    public class LibrarianController : Controller
+    public class AccountController : Controller
     {
         public ActionResult Login()
         {

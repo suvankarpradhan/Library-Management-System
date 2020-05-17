@@ -30,7 +30,7 @@
                     @if(User.Identity.IsAuthenticated)
                     {
                         <li><a>Welcome - @User.Identity.Name</a></li>
-                        <li>@Html.ActionLink("Log out","Logout","Librarian")</li>
+                        <li>@Html.ActionLink("Log out","Logout","Account")</li>
                     }
                 </ul>
             </div>
