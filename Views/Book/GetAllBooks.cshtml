@@ -35,9 +35,15 @@
             @Html.DisplayFor(modelItem => item.author_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.book_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.book_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.book_id })
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.book_id })
+            }
+            | @Html.ActionLink("Details", "Details", new { id = item.book_id }) |
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.book_id })
+            }
         </td>
     </tr>
 }

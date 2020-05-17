@@ -53,6 +53,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.book_id }) |
-    @Html.ActionLink("Back to List", "GetAllBooks")
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.book_id })
+    }
+    | @Html.ActionLink("Back to List", "GetAllBooks")
 </p>
