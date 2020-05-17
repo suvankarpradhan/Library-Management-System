@@ -23,4 +23,5 @@ namespace Library_Management_System.Models
         [Required]
         public string username { get; set; }
     }
+    public enum role { Admin, Employee }
 }
