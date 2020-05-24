@@ -30,3 +30,15 @@ function showPassword() {
         x.type = "password";
     }
 }
+
+function setLastDate() {
+    var today = document.getElementById("issue_date").value;
+    var date = new Date(today);
+    date.setDate(date.getDate() + 7);
+    var dd = date.getDate();
+    var mm = date.getMonth() + 1;
+    var yyyy = date.getFullYear();
+    var lastDate = dd + '-' + mm + '-' + yyyy;
+    document.getElementById("last_date").value = lastDate;
+
+}
