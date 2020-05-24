@@ -26,6 +26,7 @@
             @Html.LabelFor(model => model.emp_pass, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.PasswordFor(model => model.emp_pass, new { @class = "form-control" })
+                <input type="checkbox" onclick="showPassword()"> Show Password
                 @Html.ValidationMessageFor(model => model.emp_pass, "", new { @class = "text-danger" })
             </div>
         </div>
