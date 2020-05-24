@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Library_Management_System.Models.TransactionRecord>
+
+@{
+    ViewBag.Title = "GetAllTransactions";
+}
+
+<h2>GetAllTransactions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.trans_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mem_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.issue_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.return_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.penalty)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.trans_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emp_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mem_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.issue_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.return_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.penalty)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.trans_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.trans_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -63,5 +63,11 @@ namespace Library_Management_System.Controllers
             }
             return View();
         }
+
+        public ActionResult GetAllTransactions()
+        {
+            var record = transactionTable.GetAllTransactions();
+            return View(record);
+        }
     }
 }

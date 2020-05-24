@@ -29,6 +29,7 @@
                         if (User.IsInRole("Admin"))
                         {
                             <li>@Html.ActionLink("Employee Detail", "GetAllEmployees", "Employee")</li>
+                            <li>@Html.ActionLink("Transaction Detail", "GetAllTransactions", "Transaction")</li>
                         }
                         <li>@Html.ActionLink("Members Detail", "GetAllMembers", "Member")</li>
                         <li>@Html.ActionLink("Books Record Detail", "GetAllBooks", "Book")</li>
