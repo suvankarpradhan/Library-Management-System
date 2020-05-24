@@ -15,12 +15,12 @@ namespace Library_Management_System.Models
         public string emp_email { get; set; }
         [Required][Phone]
         public string emp_phone { get; set; }
-        [Required]
+        [Required][Display(Name = "Password")]
         public string emp_pass { get; set; }
         public string emp_add { get; set; }
         [Required]
         public string role { get; set; }
-        [Required]
+        [Required][Display(Name = "Username")]
         public string username { get; set; }
     }
     public enum role { Admin, Employee }
