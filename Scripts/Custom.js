@@ -13,3 +13,11 @@
         moreText.style.display = "inline";
     }
 }
+
+function searchForm() {
+    var id = document.getElementById("id").value;
+    if (id == "") {
+        document.getElementById("tId").innerHTML = "Please Enter Transaction Id";
+        return false;
+    }
+}

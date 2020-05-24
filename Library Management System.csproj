@@ -249,6 +249,7 @@
     <Content Include="Views\Transaction\Edit.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Transaction\GetAllTransactions.cshtml" />
+    <Content Include="Views\Transaction\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

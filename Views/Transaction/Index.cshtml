@@ -5,21 +5,25 @@
 
 <h2>SUV LIBRARY</h2>
 
-@using (Html.BeginForm("Details","Transaction",FormMethod.Get))
+@using (Html.BeginForm("Details", "Transaction", FormMethod.Get,htmlAttributes:new { onsubmit = "return searchForm()"}))
 {
-    <div class="form-group">
-        @Html.Label("Enter Transaction id :")
-        <div class="col-md-10">
-            @Html.TextBox("id")
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.Label("Enter Transaction id :",htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("id", "",htmlAttributes: new { @class = "form-control",Type="number" })<span id="tId" style="color:red"></span>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Search" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
         </div>
     </div>
 }
 <div>
-    @Html.ActionLink("Create new Record","Create")
+    @Html.ActionLink("Create new Record", "Create")
 </div>
 

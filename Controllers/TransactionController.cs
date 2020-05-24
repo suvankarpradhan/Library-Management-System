@@ -21,11 +21,18 @@ namespace Library_Management_System.Controllers
         {
             return View();
         }
-
         public ActionResult Details(int id)
         {
             var transaction = transactionTable.GetTransaction(id);
-            return View(transaction);
+            if(transaction != null)
+            {
+                return View(transaction);
+            }
+            else
+            {
+                return RedirectToAction("NotFound");
+            }
+            
         }
 
         public ActionResult Create()
@@ -68,6 +75,10 @@ namespace Library_Management_System.Controllers
         {
             var record = transactionTable.GetAllTransactions();
             return View(record);
+        }
+        public ViewResult NotFound()
+        {
+            return View();
         }
     }
 }
