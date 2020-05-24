@@ -4,20 +4,20 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>SUV LIBRARY</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>TransactionRecord</h4>
+        <h4>Update this Transaction Record</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.trans_id, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.trans_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.trans_id, new { htmlAttributes = new { @class = "form-control", ReadOnly = "true" } })
                 @Html.ValidationMessageFor(model => model.trans_id, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.emp_id, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.emp_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.emp_id, new { htmlAttributes = new { @class = "form-control", ReadOnly = "true" } })
                 @Html.ValidationMessageFor(model => model.emp_id, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -33,7 +33,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.book_id, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.book_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.book_id, new { htmlAttributes = new { @class = "form-control", ReadOnly = "true" } })
                 @Html.ValidationMessageFor(model => model.book_id, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.mem_id, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.mem_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.mem_id, new { htmlAttributes = new { @class = "form-control", ReadOnly = "true" } })
                 @Html.ValidationMessageFor(model => model.mem_id, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.issue_date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.issue_date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.issue_date, new { htmlAttributes = new { @class = "form-control", Type = "text", ReadOnly = "true" } })
                 @Html.ValidationMessageFor(model => model.issue_date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.last_date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.last_date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.last_date, new { htmlAttributes = new { @class = "form-control", Type = "text", ReadOnly = "true" } })
                 @Html.ValidationMessageFor(model => model.last_date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -80,7 +80,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="button" value="Caculate penalty" class="btn btn-info" onclick="penaltyCalculate()" />
+                <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </div>
     </div>

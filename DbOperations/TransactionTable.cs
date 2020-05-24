@@ -33,7 +33,7 @@ namespace Library_Management_System.DbOperations
         {
             using (var context = new Library_Management_SystemEntities())
             {
-                var transaction = new transactionRecord() { emp_id = Id };
+                var transaction = new transactionRecord() { trans_id = Id };
                 transaction.emp_id = record.emp_id;
                 transaction.book_id = record.book_id;
                 transaction.mem_id = record.mem_id;

@@ -42,3 +42,40 @@ function setLastDate() {
     document.getElementById("last_date").value = lastDate;
 
 }
+
+function penaltyCalculate() {
+    var returnDate = document.getElementById("return_date").value;
+    var rDate = new Date(returnDate);
+
+    var lastDate = document.getElementById("last_date").value;
+    lastDate = stringToDate(lastDate);
+    var lDate = new Date(lastDate);
+
+    var issueDate = document.getElementById("issue_date").value;
+    issueDate = stringToDate(issueDate);
+    var iDate = new Date(issueDate);
+
+    if (rDate > iDate == 1) {
+        if (rDate > lDate == 1) {
+            var time = rDate.getTime() - lDate.getTime();
+            var days = time / (1000 * 3600 * 24);
+            var penalty = days * 2;
+            document.getElementById("penalty").value = penalty;
+        } else {
+            alert("No penalty required.");
+            document.getElementById("penalty").value = 0;
+        }
+    } else {
+        alert("You enter a Invalid date or Issue date and Return date is same")
+        document.getElementById("penalty").value = 0;
+        document.getElementById("return_date").value = issueDate;
+    }
+}
+
+function stringToDate(date) {
+    var dd = (date.charAt(0)).concat(date.charAt(1));
+    var mm = (date.charAt(3)).concat(date.charAt(4));
+    var yyyy = ((date.charAt(6)).concat(date.charAt(7))).concat((date.charAt(8)).concat(date.charAt(9)));
+    date = yyyy + '-' + mm + '-' + dd;
+    return date;
+}
