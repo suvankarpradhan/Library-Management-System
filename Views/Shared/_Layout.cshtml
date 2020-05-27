@@ -6,11 +6,11 @@
     <title>@ViewBag.Title - SUV Library</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-   
+
 </head>
 <body onload="getEmpInfo()">
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -26,17 +26,27 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        if (User.IsInRole("Admin"))
-                        {
-                            <li>@Html.ActionLink("Employee Detail", "GetAllEmployees", "Employee")</li>
-                            <li>@Html.ActionLink("Transaction Detail", "GetAllTransactions", "Transaction")</li>
-                        }
-                        <li>@Html.ActionLink("Members Detail", "GetAllMembers", "Member")</li>
-                        <li>@Html.ActionLink("Books Record Detail", "GetAllBooks", "Book")</li>
-                        <li>@Html.ActionLink("Transaction", "Index", "Transaction")</li>
-                        <li><a id="User">Welcome - @User.Identity.Name</a></li>
-                        <li>@Html.ActionLink("Log out", "Logout", "Account")</li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                See Records
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>@Html.ActionLink("Employee Details", "GetAllEmployees", "Employee")</li>
+                                    <li>@Html.ActionLink("Transaction Details", "GetAllTransactions", "Transaction")</li>
+                                }
+                                <li>@Html.ActionLink("Members Details", "GetAllMembers", "Member")</li>
+                                <li>@Html.ActionLink("Books Record Details", "GetAllBooks", "Book")</li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Search Transaction", "Index", "Transaction")</li>
                     }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class=""><a id="User">Welcome - @User.Identity.Name</a></li>
+                    <li class="pull-right">@Html.ActionLink("Log out", "Logout", "Account")</li>
                 </ul>
             </div>
         </div>
