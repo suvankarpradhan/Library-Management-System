@@ -62,6 +62,24 @@ namespace Library_Management_System.DbOperations
                 return record;
             }
         }
+        public EmployeeRecord GetEmployee(string userName)
+        {
+            using (var context = new Library_Management_SystemEntities())
+            {
+                var record = context.employeeRecord.Where(x => x.username == userName).Select(x => new EmployeeRecord()
+                {
+                    emp_id = x.emp_id,
+                    emp_name = x.emp_name,
+                    emp_email = x.emp_email,
+                    emp_phone = x.emp_phone,
+                    username = x.username,
+                    emp_pass = x.emp_pass,
+                    emp_add = x.emp_add,
+                    role = x.role
+                }).FirstOrDefault();
+                return record;
+            }
+        }
 
         public bool UpdateEmployee(int Id, EmployeeRecord record)
         {

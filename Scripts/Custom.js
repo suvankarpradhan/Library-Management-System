@@ -79,3 +79,20 @@ function stringToDate(date) {
     date = yyyy + '-' + mm + '-' + dd;
     return date;
 }
+
+function getEmpInfo() {
+    var user = document.getElementById("User").innerHTML;
+    user = user.slice(10, user.length)
+    $.ajax({
+        url: "/Employee/getInfo",
+        method: "GET",
+        data: "username=" + user,
+        success: function (data) {
+            data = JSON.parse(data);
+            document.getElementById("emp_id").value = data.emp_id;
+        },
+        error: function (err) {
+            console.error(err);
+        }
+    })
+}

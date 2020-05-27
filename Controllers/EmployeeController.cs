@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Library_Management_System.Models;
 using Library_Management_System.DbOperations;
+using Newtonsoft.Json;
 
 namespace Library_Management_System.Controllers
 {
@@ -44,6 +45,12 @@ namespace Library_Management_System.Controllers
         {
             var employee = employeeTable.GetEmployee(id);
             return View(employee);
+        }
+        public JsonResult getInfo(string username)
+        {
+            var emp = employeeTable.GetEmployee(username);
+            var record = JsonConvert.SerializeObject(emp);
+            return Json(record, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Edit(int id)
         {

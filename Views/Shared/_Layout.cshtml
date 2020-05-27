@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
    
 </head>
-<body>
+<body onload="getEmpInfo()">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -34,7 +34,7 @@
                         <li>@Html.ActionLink("Members Detail", "GetAllMembers", "Member")</li>
                         <li>@Html.ActionLink("Books Record Detail", "GetAllBooks", "Book")</li>
                         <li>@Html.ActionLink("Transaction", "Index", "Transaction")</li>
-                        <li><a>Welcome - @User.Identity.Name</a></li>
+                        <li><a id="User">Welcome - @User.Identity.Name</a></li>
                         <li>@Html.ActionLink("Log out", "Logout", "Account")</li>
                     }
                 </ul>
