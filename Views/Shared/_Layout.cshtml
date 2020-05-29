@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body onload="getEmpInfo()">
+<body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -44,10 +44,13 @@
                         <li>@Html.ActionLink("Search Transaction", "Index", "Transaction")</li>
                     }
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class=""><a id="User">Welcome - @User.Identity.Name</a></li>
-                    <li class="pull-right">@Html.ActionLink("Log out", "Logout", "Account")</li>
-                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class=""><a id="User">Welcome - @User.Identity.Name</a></li>
+                        <li class="pull-right">@Html.ActionLink("Log out", "Logout", "Account")</li>
+                    </ul>
+                }
             </div>
         </div>
     </div>
