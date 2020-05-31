@@ -45,6 +45,7 @@
     <Property Name="return_date" Type="date" Nullable="false" />
     <Property Name="last_date" Type="date" Nullable="false" />
     <Property Name="penalty" Type="varchar" MaxLength="50" />
+    <Property Name="book_name" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityContainer Name="LibraryModelStoreContainer">
     <EntitySet Name="bookRecod" EntityType="Self.bookRecod" Schema="dbo" store:Type="Tables" />

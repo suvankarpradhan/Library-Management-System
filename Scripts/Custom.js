@@ -104,9 +104,7 @@ function getBooks() {
         method: "GET",
         data: "category=" + category,
         success: function (data) {
-            alert("done");
             data = JSON.parse(data);
-            console.log(data);
             $("#bookTable tbody").empty();
             var row = "<tr><th>Book Name</th><th>Author Name</th></tr>";
             $.each(data, function (i, v) {
@@ -118,4 +116,52 @@ function getBooks() {
             console.error(err);
         }
     })
+}
+
+function getBookName() {
+    var book_id = document.getElementById("book_id").value;
+    $.ajax({
+        url: "/Book/GetBookName",
+        method: "GET",
+        data: "id=" + book_id,
+        success: function (data) {
+            data = JSON.parse(data);
+            if (data != null) {
+                document.getElementById("book_name").value = data.book_name;
+            } else {
+                alert("Invalid Book Id");
+                document.getElementById("book_name").value = "";
+            }
+        },
+        error: function (err) {
+            console.error(err);
+        }
+    })
+}
+
+function getHistory() {
+    var mem_id = document.getElementById("Mid").value;
+    document.getElementById("MId").innerHTML = "";
+    if (mem_id != "") {
+        $.ajax({
+            url: "/Transaction/GetHistory",
+            method: "GET",
+            data: "Mid=" + mem_id,
+            success: function (data) {
+                data = JSON.parse(data);
+                $("#historyTable tbody").empty();
+                var row = "<tr><th>Transaction Id</th><th>Book Name</th><th>Issue Date</th><th>Last Date</th><th>Penalty</th></tr>";
+                $.each(data, function (i, v) {
+                    row += "<tr><td>" + v.trans_id + "</td><td>" + v.book_name + "</td><td>" + v.issue_date + "</td><td>" + v.last_date + "</td><td>" + v.penalty + "</td></tr>";
+                });
+                $("#historyTable").append(row);
+            },
+            error: function (err) {
+                console.error(err);
+            }
+        })
+    } else {
+        document.getElementById("MId").innerHTML = "Please Enter Your Membership Id";
+        $("#historyTable tbody").empty();
+    }
 }

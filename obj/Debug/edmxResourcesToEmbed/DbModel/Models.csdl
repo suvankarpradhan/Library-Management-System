@@ -45,6 +45,7 @@
     <Property Name="return_date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="last_date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="penalty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="Library_Management_SystemEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="bookRecod" EntityType="Self.bookRecod" />

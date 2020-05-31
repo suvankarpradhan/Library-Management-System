@@ -21,6 +21,9 @@
             @Html.DisplayNameFor(model => model.book_id)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.book_name)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.mem_id)
         </th>
         <th>
@@ -38,37 +41,41 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.trans_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.emp_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mem_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.issue_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.return_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.last_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.penalty)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.trans_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.trans_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.trans_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mem_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.issue_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.return_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.last_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.penalty)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.trans_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.trans_id })
+            </td>
+        </tr>
+    }
 
 </table>

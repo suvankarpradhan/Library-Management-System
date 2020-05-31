@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Library_Management_System.Models;
 using Library_Management_System.DbOperations;
+using Newtonsoft.Json;
 
 namespace Library_Management_System.Controllers
 {
@@ -76,6 +77,14 @@ namespace Library_Management_System.Controllers
             var record = transactionTable.GetAllTransactions();
             return View(record);
         }
+        [AllowAnonymous]
+        public JsonResult GetHistory(int Mid)
+        {
+            var history = transactionTable.GetHistory(Mid);
+            var record = JsonConvert.SerializeObject(history);
+            return Json(record, JsonRequestBehavior.AllowGet);
+        }
+
         public ViewResult NotFound()
         {
             return View();

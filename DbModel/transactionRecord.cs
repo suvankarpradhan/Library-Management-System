@@ -22,5 +22,6 @@ namespace Library_Management_System.DbModel
         public System.DateTime return_date { get; set; }
         public System.DateTime last_date { get; set; }
         public string penalty { get; set; }
+        public string book_name { get; set; }
     }
 }

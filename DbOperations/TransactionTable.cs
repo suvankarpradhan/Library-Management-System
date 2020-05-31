@@ -21,7 +21,8 @@ namespace Library_Management_System.DbOperations
                    issue_date = record.issue_date,
                    return_date = record.return_date,
                    last_date = record.last_date,
-                   penalty = record.penalty
+                   penalty = record.penalty,
+                   book_name = record.book_name
                 };
                 context.transactionRecord.Add(tran);
                 context.SaveChanges();
@@ -41,6 +42,7 @@ namespace Library_Management_System.DbOperations
                 transaction.return_date = record.return_date;
                 transaction.last_date = record.last_date;
                 transaction.penalty = record.penalty;
+                transaction.book_name = record.book_name;
                 context.Entry(transaction).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
                 return true;
@@ -59,7 +61,8 @@ namespace Library_Management_System.DbOperations
                     issue_date = x.issue_date,
                     return_date = x.return_date,
                     last_date = x.last_date,
-                    penalty = x.penalty
+                    penalty = x.penalty,
+                    book_name = x.book_name
                 }).FirstOrDefault();
                 return record;
             }
@@ -77,7 +80,23 @@ namespace Library_Management_System.DbOperations
                     issue_date = x.issue_date,
                     return_date = x.return_date,
                     last_date = x.last_date,
-                    penalty = x.penalty
+                    penalty = x.penalty,
+                    book_name = x.book_name
+                }).ToList();
+                return record;
+            }
+        }
+        public List<TransactionRecord> GetHistory(int Mid)
+        {
+            using (var context = new Library_Management_SystemEntities())
+            {
+                var record = context.transactionRecord.Where(x => x.mem_id == Mid).Select(x => new TransactionRecord()
+                {
+                    trans_id = x.trans_id,
+                    issue_date = x.issue_date,
+                    last_date = x.last_date,
+                    penalty = x.penalty,
+                    book_name = x.book_name
                 }).ToList();
                 return record;
             }

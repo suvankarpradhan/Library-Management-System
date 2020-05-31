@@ -23,5 +23,7 @@ namespace Library_Management_System.Models
         public System.DateTime last_date { get; set; }
         [Display(Name = "Penalty")]
         public string penalty { get; set; }
+        [Required][Display(Name ="Book Name")]
+        public string book_name { get; set; }
     }
 }

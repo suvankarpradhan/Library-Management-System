@@ -61,6 +61,13 @@ namespace Library_Management_System.Controllers
             return View(book);
         }
 
+        public JsonResult GetBookName(int id)
+        {
+            var book = bookTable.GetBook(id);
+            var record = JsonConvert.SerializeObject(book);
+            return Json(record, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Book/Edit/5
         public ActionResult Edit(int id)
         {

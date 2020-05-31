@@ -50,6 +50,7 @@
           <Property Name="return_date" Type="date" Nullable="false" />
           <Property Name="last_date" Type="date" Nullable="false" />
           <Property Name="penalty" Type="varchar" MaxLength="50" />
+          <Property Name="book_name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="LibraryModelStoreContainer">
           <EntitySet Name="bookRecod" EntityType="Self.bookRecod" Schema="dbo" store:Type="Tables" />
@@ -106,6 +107,7 @@
           <Property Name="return_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="last_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="penalty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="book_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="Library_Management_SystemEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="bookRecod" EntityType="Self.bookRecod" />
@@ -158,6 +160,7 @@
           <EntitySetMapping Name="transactionRecord">
             <EntityTypeMapping TypeName="LibraryModel.transactionRecord">
               <MappingFragment StoreEntitySet="transactionRecord">
+                <ScalarProperty Name="book_name" ColumnName="book_name" />
                 <ScalarProperty Name="trans_id" ColumnName="trans_id" />
                 <ScalarProperty Name="emp_id" ColumnName="emp_id" />
                 <ScalarProperty Name="book_id" ColumnName="book_id" />

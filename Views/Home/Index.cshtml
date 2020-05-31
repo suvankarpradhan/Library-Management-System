@@ -14,11 +14,26 @@
         <div class="panel-heading">
             <div class="form-inline">
                 @Html.Label("Search all the available Books :", htmlAttributes: new { @class = "control-label col-md-3", style = "padding-top:5px" })
-                @Html.DropDownListFor(model => model.category, new SelectList(ViewBag.Category, "category", "category"), "select Subject", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.category, new SelectList(ViewBag.Category, "category", "category"), "Select Subject", htmlAttributes: new { @class = "form-control" })
                 <input type="button" onclick="getBooks()" class="btn btn-info" value="Search" />
             </div>
         </div>
         <table class="table" id="bookTable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<div style="padding-top:10px">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <div class="form-inline">
+                @Html.Label("Search your Book Drawn History :", htmlAttributes: new { @class = "control-label col-md-3", style = "padding-top:5px" })
+                @Html.TextBox("Mid", "", htmlAttributes: new { @class = "form-control", Type = "number", Min = "0" })<span id="MId" style="color:red"></span>
+                <input type="button" onclick="getHistory()" class="btn btn-info" value="Search" />
+            </div>
+        </div>
+        <table class="table" id="historyTable">
             <thead></thead>
             <tbody></tbody>
         </table>
