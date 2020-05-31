@@ -1,10 +1,26 @@
-﻿@{
+﻿@model Library_Management_System.Models.BookRecord
+@{
     ViewBag.Title = "Home Page";
 }
-    <div class="bg-image">
-        <div class="bg-text">
-            <h1 style="font-size:50px">SUV LIBRARY</h1>
-            <p class="lead">"Libraries store the energy that fuels the imagination. They open up windows to the world and inspire us to explore and achieve, and contribute to improving our quality of life."</p>
-            <p><a href="" class="btn btn-primary btn-lg">Join now &raquo;</a></p>
-        </div>
+<div class="bg-image">
+    <div class="bg-text">
+        <h1 style="font-size:50px">SUV LIBRARY</h1>
+        <p class="lead">"Libraries store the energy that fuels the imagination. They open up windows to the world and inspire us to explore and achieve, and contribute to improving our quality of life."</p>
+        <p><a href="" class="btn btn-primary btn-lg">Join now &raquo;</a></p>
     </div>
+</div>
+<div style="padding-top:20px">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <div class="form-inline">
+                @Html.Label("Search all the available Books :", htmlAttributes: new { @class = "control-label col-md-3", style = "padding-top:5px" })
+                @Html.DropDownListFor(model => model.category, new SelectList(ViewBag.Category, "category", "category"), "select Subject", htmlAttributes: new { @class = "form-control" })
+                <input type="button" onclick="getBooks()" class="btn btn-info" value="Search" />
+            </div>
+        </div>
+        <table class="table" id="bookTable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>

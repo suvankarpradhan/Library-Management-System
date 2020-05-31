@@ -96,3 +96,26 @@ function getEmpInfo() {
         }
     })
 }
+
+function getBooks() {
+    var category = document.getElementById("category").value;
+    $.ajax({
+        url: "/Book/GetBooks",
+        method: "GET",
+        data: "category=" + category,
+        success: function (data) {
+            alert("done");
+            data = JSON.parse(data);
+            console.log(data);
+            $("#bookTable tbody").empty();
+            var row = "<tr><th>Book Name</th><th>Author Name</th></tr>";
+            $.each(data, function (i, v) {
+                row += "<tr><td>" + v.book_name + "</td><td>" + v.author_name + "</td></tr>";
+            });
+            $("#bookTable").append(row);
+        },
+        error: function (err) {
+            console.error(err);
+        }
+    })
+}

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library_Management_System.Models;
+using Library_Management_System.DbModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,15 @@ namespace Library_Management_System.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            using (var context = new Library_Management_SystemEntities())
+            {
+                var record = context.bookRecod.Select(b => new BookRecord()
+                {
+                    category = b.category
+                }).Distinct().ToList();
+                ViewBag.Category = record;
+                return View();
+            }
         }
 
         public ActionResult About()

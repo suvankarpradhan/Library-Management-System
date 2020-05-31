@@ -38,6 +38,18 @@ namespace Library_Management_System.DbOperations
                 return record;
             }
         }
+        public List<BookRecord> GetBooks(string category)
+        {
+            using (var context = new Library_Management_SystemEntities())
+            {
+                var record = context.bookRecod.Where(b => b.category == category).Select(b => new BookRecord()
+                {
+                    book_name = b.book_name,
+                    author_name = b.author_name
+                }).ToList();
+                return record;
+            }
+        }
         public BookRecord GetBook(int id)
         {
             using (var context = new Library_Management_SystemEntities())

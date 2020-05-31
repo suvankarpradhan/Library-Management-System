@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Library_Management_System.Models;
 using Library_Management_System.DbOperations;
+using Newtonsoft.Json;
 
 namespace Library_Management_System.Controllers
 {
@@ -43,6 +44,14 @@ namespace Library_Management_System.Controllers
         {
             var record = bookTable.GetAllBooks();
             return View(record);
+        }
+        
+        [AllowAnonymous]
+        public JsonResult GetBooks(string category)
+        {
+            var books = bookTable.GetBooks(category);
+            var record = JsonConvert.SerializeObject(books);
+            return Json(record, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Book/Details/5
