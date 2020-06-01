@@ -3,7 +3,12 @@
 @{
     ViewBag.Title = "GetAllBooks";
 }
-
+<div class="container">
+    <div class="alert alert-success alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Table Updated Successfully.
+    </div>
+</div>
 <h2>All Books</h2>
 
 <p>
@@ -23,29 +28,30 @@
         <th>Action</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.author_name)
-        </td>
-        <td>
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.book_id })
-            }
-            | @Html.ActionLink("Details", "Details", new { id = item.book_id }) |
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Delete", "Delete", new { id = item.book_id })
-            }
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author_name)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.book_id })
+                }
+                | @Html.ActionLink("Details", "Details", new { id = item.book_id }) |
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.book_id })
+                }
+            </td>
+        </tr>
+    }
 
 </table>

@@ -3,7 +3,15 @@
 @{
     ViewBag.Title = "Edit";
 }
-
+<div class="container">
+    @if (ViewBag.IsSuccess == "False")
+    {
+        <div class="alert alert-danger alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Oops!</strong> Something went wrong.
+        </div>
+    }
+</div>
 <h2>SUV LIBRARY</h2>
 
 @using (Html.BeginForm())

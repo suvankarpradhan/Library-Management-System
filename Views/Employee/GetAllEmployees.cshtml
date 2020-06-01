@@ -3,7 +3,12 @@
 @{
     ViewBag.Title = "GetAllEmployees";
 }
-
+<div class="container">
+    <div class="alert alert-success alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Table Updated Successfully.
+    </div>
+</div>
 <h2>All Employees</h2>
 
 <p>
@@ -23,23 +28,24 @@
         <th>Action</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.emp_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.emp_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.emp_email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.emp_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.emp_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.emp_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.emp_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.emp_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.emp_id })
+            </td>
+        </tr>
+    }
 
 </table>

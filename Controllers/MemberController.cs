@@ -29,7 +29,12 @@ namespace Library_Management_System.Controllers
                 if (Id > 0)
                 {
                     ModelState.Clear();
+                    ViewBag.IsSuccess = "True";
                 }
+            }
+            else
+            {
+                ViewBag.IsSuccess = "False";
             }
             return View();
         }
@@ -57,6 +62,10 @@ namespace Library_Management_System.Controllers
             {
                 memberTable.UpdateMember(record.mem_id, record);
                 return RedirectToAction("GetAllMembers");
+            }
+            else
+            {
+                ViewBag.IsSuccess = "False";
             }
             return View();
         }

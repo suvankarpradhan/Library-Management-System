@@ -3,18 +3,33 @@
 @{
     ViewBag.Title = "Create";
 }
+<div class="container">
+    @if (ViewBag.IsSuccess == "True")
+    {
+        <div class="alert alert-success alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> You have Successfully Inserted a Member Record.
+        </div>
+    }
+    else if (ViewBag.IsSuccess == "False")
+    {
+        <div class="alert alert-danger alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Oops!</strong> Something went wrong.
+        </div>
+    }
+</div>
+<h2>SUV LIBRARY</h2>
 
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>MemberRecord</h4>
+        <h4>Create a Member Record</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.mem_name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

@@ -34,7 +34,12 @@ namespace Library_Management_System.Controllers
                 if (Id > 0)
                 {
                     ModelState.Clear();
+                    ViewBag.IsSuccess = "True";
                 }
+            }
+            else
+            {
+                ViewBag.IsSuccess = "False";
             }
             return View();            
         }
@@ -45,7 +50,7 @@ namespace Library_Management_System.Controllers
             var record = bookTable.GetAllBooks();
             return View(record);
         }
-        
+
         [AllowAnonymous]
         public JsonResult GetBooks(string category)
         {
@@ -83,6 +88,10 @@ namespace Library_Management_System.Controllers
             {
                 bookTable.UpdateBook(record.book_id, record);
                 return RedirectToAction("GetAllBooks");
+            }
+            else
+            {
+                ViewBag.IsSuccess = "False";
             }
             return View();
         }
