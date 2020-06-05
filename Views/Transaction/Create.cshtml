@@ -19,15 +19,16 @@
         </div>
     }
 </div>
-<h2>SUV LIBRARY</h2>
+<div style="padding-bottom:25px">
+    <h1>SUV LIBRARY</h1>
+    <h4>Create a Transaction Record</h4>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Create a Transaction Record</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.last_date)
         @Html.HiddenFor(model => model.emp_id)
@@ -66,13 +67,16 @@
 
         <div class="form-group" onmousedown="getEmpInfo()">
             <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Add Book Name" class="btn btn-info" onclick="getBookName()" />
-                <input type="submit" value="Create" class="btn btn-default" onclick="setLastDate()" />
+                <input type="button" value="Add Book Name" class="btn btn-primary" onclick="getBookName()" />
+                <input type="submit" value="Create" class="btn btn-success" onclick="setLastDate()" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back", "Index")
+    <a class="btn btn-warning" href="~/Transaction/Index" role="button">Back</a>
 </div>
+<script>
+    document.getElementById("bodyImg").style.backgroundImage = "url('/Content/images/createEdit.jpg')";
+</script>
