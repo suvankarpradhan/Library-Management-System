@@ -35,6 +35,12 @@ namespace Library_Management_System.Controllers
             }
             
         }
+        public JsonResult search(int id)
+        {
+            var transaction = transactionTable.GetTransaction(id);
+            var record = JsonConvert.SerializeObject(transaction);
+            return Json(record, JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult Create()
         {
@@ -92,11 +98,6 @@ namespace Library_Management_System.Controllers
             var history = transactionTable.GetHistory(Mid);
             var record = JsonConvert.SerializeObject(history);
             return Json(record, JsonRequestBehavior.AllowGet);
-        }
-
-        public ViewResult NotFound()
-        {
-            return View();
         }
     }
 }

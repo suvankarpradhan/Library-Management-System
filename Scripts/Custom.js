@@ -14,14 +14,6 @@
     }
 }
 
-function searchForm() {
-    var id = document.getElementById("id").value;
-    if (id == "") {
-        document.getElementById("tId").innerHTML = "Please Enter Transaction Id";
-        return false;
-    }
-}
-
 function showPassword() {
     var x = document.getElementById("emp_pass");
     if (x.type == "password") {
@@ -148,13 +140,17 @@ function getHistory() {
             method: "GET",
             data: "Mid=" + mem_id,
             success: function (data) {
-                data = JSON.parse(data);
-                $("#historyTable tbody").empty();
-                var row = "<tr><th>Transaction Id</th><th>Book Name</th><th>Issue Date</th><th>Last Date</th><th>Penalty</th></tr>";
-                $.each(data, function (i, v) {
-                    row += "<tr><td>" + v.trans_id + "</td><td>" + v.book_name + "</td><td>" + v.issue_date + "</td><td>" + v.last_date + "</td><td>" + v.penalty + "</td></tr>";
-                });
-                $("#historyTable").append(row);
+                if (data == "[]") {
+                    $("#historyTable tbody").empty();
+                } else {
+                    data = JSON.parse(data);
+                    $("#historyTable tbody").empty();
+                    var row = "<tr><th>Transaction Id</th><th>Book Name</th><th>Issue Date</th><th>Last Date</th><th>Penalty</th></tr>";
+                    $.each(data, function (i, v) {
+                        row += "<tr><td>" + v.trans_id + "</td><td>" + v.book_name + "</td><td>" + v.issue_date + "</td><td>" + v.last_date + "</td><td>" + v.penalty + "</td></tr>";
+                    });
+                    $("#historyTable").append(row);
+                }
             },
             error: function (err) {
                 console.error(err);
@@ -164,4 +160,48 @@ function getHistory() {
         document.getElementById("MId").innerHTML = "Please Enter Your Membership Id";
         $("#historyTable tbody").empty();
     }
+}
+
+function search() {
+    var id = document.getElementById("id").value;
+    if (id == "") {
+        document.getElementById("tId").innerHTML = "Please Enter Transaction Id";
+    } else {
+        $.ajax({
+            url: "/Transaction/search",
+            method: "GET",
+            data: "id=" + id,
+            success: function (data) {
+                data = JSON.parse(data);
+                if (data == null) {
+                    document.getElementById("edit").type = "hidden";
+                    $("#detail tbody").empty();
+                    alert("Enter a valid Transaction Id");
+                } else {
+                    $("#detail tbody").empty();
+                    var row =
+                        "<tr><th>" + "Transaction Id" + "</th><td>" + data.trans_id + "</td></tr>" +
+                        "<tr><th>" + "Employee Id" + "</th><td>" + data.emp_id + "</td></tr>" +
+                        "<tr><th>" + "Book Id" + "</th><td>" + data.book_id + "</td></tr>" +
+                        "<tr><th>" + "Book Name" + "</th><td>" + data.book_name + "</td></tr>" +
+                        "<tr><th>" + "Member Id" + "</th><td>" + data.mem_id + "</td></tr>" +
+                        "<tr><th>" + "Issue Date" + "</th><td>" + data.issue_date + "</td></tr>" +
+                        "<tr><th>" + "Return Date" + "</th><td>" + data.return_date + "</td></tr>" +
+                        "<tr><th>" + "Last Date" + "</th><td>" + data.last_date + "</td></tr>" +
+                        "<tr><th>" + "Penalty" + "</th><td>" + data.penalty + "</td></tr>";
+                    $("#detail").append(row);
+                    document.getElementById("edit").type = "submit";
+                }
+            },
+            error: function (err) {
+                console.error(err);
+            }
+        })
+    }
+}
+
+function editBtn() {
+    document.getElementById("tId").innerHTML = "";
+    document.getElementById("edit").type = "hidden";
+    $("#detail tbody").empty();
 }

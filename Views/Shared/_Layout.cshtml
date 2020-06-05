@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body id="bodyImg" class="bg">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -34,11 +34,11 @@
                             <ul class="dropdown-menu">
                                 @if (User.IsInRole("Admin"))
                                 {
-                                    <li>@Html.ActionLink("Employee Details", "GetAllEmployees", "Employee")</li>
-                                    <li>@Html.ActionLink("Transaction Details", "GetAllTransactions", "Transaction")</li>
+                                    <li>@Html.ActionLink("Employees Detail", "GetAllEmployees", "Employee")</li>
                                 }
-                                <li>@Html.ActionLink("Members Details", "GetAllMembers", "Member")</li>
-                                <li>@Html.ActionLink("Books Record Details", "GetAllBooks", "Book")</li>
+                                <li>@Html.ActionLink("Members Detail", "GetAllMembers", "Member")</li>
+                                <li>@Html.ActionLink("Books Record Detail", "GetAllBooks", "Book")</li>
+                                <li>@Html.ActionLink("Transactions Detail", "GetAllTransactions", "Transaction")</li>
                             </ul>
                         </li>
                         <li>@Html.ActionLink("Search Transaction", "Index", "Transaction")</li>
@@ -56,9 +56,9 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+
         <footer>
-            <p>&copy; @DateTime.Now.Year - SUV Library</p>
+            <p class="pull-right">&copy; @DateTime.Now.Year - SUV Library</p>
         </footer>
     </div>
 
