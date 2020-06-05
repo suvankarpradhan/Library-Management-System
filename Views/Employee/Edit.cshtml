@@ -12,15 +12,16 @@
         </div>
     }
 </div>
-<h2>SUV LIBRARY</h2>
+<div style="padding-bottom:30px">
+    <h1>SUV LIBRARY</h1>
+    <h4>Update this Employee Record</h4>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Update this Employee Record</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.emp_id)
 
@@ -97,5 +98,8 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "GetAllEmployees")
+    <a class="btn btn-warning" href="~/Employee/GetAllEmployees" role="button">See All Employees</a>
 </div>
+<script>
+    document.getElementById("bodyImg").style.backgroundImage = "url('/Content/images/createEditE.jpg')";
+</script>
