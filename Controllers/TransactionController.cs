@@ -22,19 +22,7 @@ namespace Library_Management_System.Controllers
         {
             return View();
         }
-        public ActionResult Details(int id)
-        {
-            var transaction = transactionTable.GetTransaction(id);
-            if(transaction != null)
-            {
-                return View(transaction);
-            }
-            else
-            {
-                return RedirectToAction("NotFound");
-            }
-            
-        }
+
         public JsonResult search(int id)
         {
             var transaction = transactionTable.GetTransaction(id);
