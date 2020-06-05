@@ -181,6 +181,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\Admin.png" />
+    <Content Include="Content\images\create.jpg" />
+    <Content Include="Content\images\login.jpg" />
     <Content Include="Content\images\Home.jpg" />
     <Content Include="Content\images\transactionIndex.jpg" />
     <Content Include="DbModel\Models.Context.tt">

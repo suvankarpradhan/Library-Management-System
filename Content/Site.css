@@ -74,6 +74,13 @@ textarea {
 .searchTable{
     background-color:darkgreen;
     opacity:0.7;
-    color:white;
     border-radius:10px;
+}
+.login{
+    padding-top:25px;
+    padding-left:50px;
+}
+.loginLabel{
+    color:lightyellow;
+    font-size:16px;
 }
