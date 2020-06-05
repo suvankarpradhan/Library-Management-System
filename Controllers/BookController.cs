@@ -60,10 +60,11 @@ namespace Library_Management_System.Controllers
         }
 
         // GET: Book/Details/5
-        public ActionResult Details(int id)
+        public JsonResult bookDetails(int id)
         {
-            var book = bookTable.GetBook(id);
-            return View(book);
+            var Book = bookTable.GetBook(id);
+            var record = JsonConvert.SerializeObject(Book);
+            return Json(record, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetBookName(int id)

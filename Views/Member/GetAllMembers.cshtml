@@ -41,14 +41,32 @@
                 @Html.DisplayFor(modelItem => item.mem_email)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.mem_id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.mem_id }) |
+                <a class="btn btn-primary" href="~/Member/Edit?id=@item.mem_id" role="button">Edit</a>
+                <a onclick="getMemBerDetail(@item.mem_id)" class="btn btn-info" role="button">Detail</a>
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Delete", "Delete", new { id = item.mem_id })
+                    <a class="btn btn-danger" href="~/Member/Delete?id=@item.mem_id" role="button">Delete</a>
                 }
             </td>
         </tr>
     }
 
 </table>
+
+<div id="memDetail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Member Detail</h4>
+            </div>
+            <div class="modal-body">
+                <p id="meminfo"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

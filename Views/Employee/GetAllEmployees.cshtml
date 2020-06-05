@@ -41,11 +41,29 @@
                 @Html.DisplayFor(modelItem => item.emp_email)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.emp_id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.emp_id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.emp_id })
+                <a class="btn btn-primary" href="~/Employee/Edit?id=@item.emp_id" role="button">Edit</a>
+                <a onclick="getEmployeeDetail(@item.emp_id)" class="btn btn-info" role="button">Detail</a>
+                <a class="btn btn-danger" href="~/Employee/Delete?id=@item.emp_id" role="button">Delete</a>
             </td>
         </tr>
     }
 
 </table>
+
+<div id="empDetail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Employee Detail</h4>
+            </div>
+            <div class="modal-body">
+                <p id="empinfo"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

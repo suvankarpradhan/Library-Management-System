@@ -43,15 +43,33 @@
             <td>
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.book_id })
+                    <a class="btn btn-primary" href="~/Book/Edit?id=@item.book_id" role="button">Edit</a>
                 }
-                | @Html.ActionLink("Details", "Details", new { id = item.book_id }) |
+                 <a onclick="getBookDetail(@item.book_id)" class="btn btn-info" role="button">Detail</a>
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Delete", "Delete", new { id = item.book_id })
+                    <a class="btn btn-danger" href="~/Book/Delete?id=@item.book_id" role="button">Delete</a>
                 }
             </td>
         </tr>
     }
 
 </table>
+
+<div id="bookDetail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Book Detail</h4>
+            </div>
+            <div class="modal-body">
+                <p id="bookinfo"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

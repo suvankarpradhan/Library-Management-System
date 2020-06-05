@@ -74,7 +74,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.return_date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.return_date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.return_date, new { htmlAttributes = new { @class = "form-control", onchange = "penaltyCalculate()" } })
                 @Html.ValidationMessageFor(model => model.return_date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -90,14 +90,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.penalty, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.penalty, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.penalty, new { htmlAttributes = new { @class = "form-control", ReadOnly = "true" } })
                 @Html.ValidationMessageFor(model => model.penalty, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group" onmousedown="getEmpInfo()">
             <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Caculate penalty" class="btn btn-info" onclick="penaltyCalculate()" />
                 <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </div>

@@ -175,21 +175,20 @@ function search() {
                 data = JSON.parse(data);
                 if (data == null) {
                     document.getElementById("edit").type = "hidden";
-                    $("#detail tbody").empty();
                     alert("Enter a valid Transaction Id");
                 } else {
-                    $("#detail tbody").empty();
-                    var row =
-                        "<tr><th>" + "Transaction Id" + "</th><td>" + data.trans_id + "</td></tr>" +
-                        "<tr><th>" + "Employee Id" + "</th><td>" + data.emp_id + "</td></tr>" +
-                        "<tr><th>" + "Book Id" + "</th><td>" + data.book_id + "</td></tr>" +
-                        "<tr><th>" + "Book Name" + "</th><td>" + data.book_name + "</td></tr>" +
-                        "<tr><th>" + "Member Id" + "</th><td>" + data.mem_id + "</td></tr>" +
-                        "<tr><th>" + "Issue Date" + "</th><td>" + data.issue_date + "</td></tr>" +
-                        "<tr><th>" + "Return Date" + "</th><td>" + data.return_date + "</td></tr>" +
-                        "<tr><th>" + "Last Date" + "</th><td>" + data.last_date + "</td></tr>" +
-                        "<tr><th>" + "Penalty" + "</th><td>" + data.penalty + "</td></tr>";
-                    $("#detail").append(row);
+                    var info =
+                        "<p><Strong>Transaction Id : </strong>"  + data.trans_id +
+                        "<br/><Strong>Employee Id : </strong>" + data.emp_id +
+                        "<br/><Strong>Book Id : </strong>" + data.book_id +
+                        "<br/><Strong>Book Name : </strong>" + data.book_name +
+                        "<br/><Strong>Member Id : </strong>" + data.mem_id +
+                        "<br/><Strong>Issue Date : </strong>" + data.issue_date +
+                        "<br/><Strong>Return Date : </strong>" + data.return_date +
+                        "<br/><Strong>Last Date : </strong>" + data.last_date +
+                        "<br/><Strong>Penalty : </strong>" + data.penalty + "</p>" ;
+                    $("#traninfo").html(info);
+                    $("#tranDetail").modal();
                     document.getElementById("edit").type = "submit";
                 }
             },
@@ -203,5 +202,67 @@ function search() {
 function editBtn() {
     document.getElementById("tId").innerHTML = "";
     document.getElementById("edit").type = "hidden";
-    $("#detail tbody").empty();
+}
+
+function getBookDetail(id) {
+    $.ajax({
+        url: "/Book/bookDetails",
+        method: "GET",
+        data: "id=" + id,
+        success: function (data) {
+            data = JSON.parse(data);
+            let info = "<p><strong>Book Name : </strong>" + data.book_name +
+                "<br/><strong>Author Name : </strong>" + data.author_name +
+                "<br/><strong>Category : </strong>" + data.category +
+                "<br/><strong>Total Copy : </strong>" + data.copies + "</p>";
+            $("#bookinfo").html(info);
+            $("#bookDetail").modal();
+        },
+        error: function (err) {
+            console.error(err);
+        }
+    })
+}
+
+function getMemBerDetail(id) {
+    $.ajax({
+        url: "/Member/memberDetails",
+        method: "GET",
+        data: "id=" + id,
+        success: function (data) {
+            data = JSON.parse(data);
+            let info = "<p><strong>Name : </strong>" + data.mem_name +
+                "<br/><strong>Email : </strong>" + data.mem_email +
+                "<br/><strong>Phone : </strong>" + data.mem_phone +
+                "<br/><strong>Address : </strong>" + data.mem_add + "</p>";
+            $("#meminfo").html(info);
+            $("#memDetail").modal();
+        },
+        error: function (err) {
+            console.error(err);
+        }
+    })
+}
+
+function getEmployeeDetail(id) {
+    $.ajax({
+        url: "/Employee/employeeDetails",
+        method: "GET",
+        data: "id=" + id,
+        success: function (data) {
+            data = JSON.parse(data);
+            let info = "<p><strong>Name : </strong>" + data.emp_name +
+                "<br/><strong>Email : </strong>" + data.emp_email +
+                "<br/><strong>Phone : </strong>" + data.emp_phone +
+                "<br/><strong>Username : </strong>" + data.username +
+                "<br/><strong>Role : </strong>" + data.role +
+                "<br/><strong>Password : </strong>" + data.emp_pass +
+                "<br/><strong>Address : </strong>" + data.emp_add + "</p>";
+            $("#empinfo").html(info);
+            $("#empDetail").modal();
+        },
+        error: function (err) {
+            console.error(err);
+        }
+    })
 }

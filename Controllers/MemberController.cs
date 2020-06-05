@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using Library_Management_System.Models;
 using Library_Management_System.DbOperations;
 
@@ -45,11 +46,14 @@ namespace Library_Management_System.Controllers
 
             return View(record);
         }
-        public ActionResult Details(int id)
+
+        public JsonResult memberDetails(int id)
         {
             var Member = memberTable.GetMember(id);
-            return View(Member);
+            var record = JsonConvert.SerializeObject(Member);
+            return Json(record, JsonRequestBehavior.AllowGet);
         }
+
         public ActionResult Edit(int id)
         {
             var Member = memberTable.GetMember(id);

@@ -46,10 +46,11 @@ namespace Library_Management_System.Controllers
 
             return View(record);
         }
-        public ActionResult Details(int id)
+        public JsonResult employeeDetails(int id)
         {
-            var employee = employeeTable.GetEmployee(id);
-            return View(employee);
+            var Member = employeeTable.GetEmployee(id);
+            var record = JsonConvert.SerializeObject(Member);
+            return Json(record, JsonRequestBehavior.AllowGet);
         }
         public JsonResult getInfo(string username)
         {
