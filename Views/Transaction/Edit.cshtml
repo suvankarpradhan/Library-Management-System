@@ -12,15 +12,16 @@
         </div>
     }
 </div>
-<h2>SUV LIBRARY</h2>
+<div style="padding-bottom:25px">
+    <h1>SUV LIBRARY</h1>
+    <h4>Update this Transaction Record</h4>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Update this Transaction Record</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.trans_id, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -104,5 +105,8 @@
 }
 
 <div>
-    @Html.ActionLink("Back", "Index")
+    <a class="btn btn-warning" href="~/Transaction/Index" role="button">Back</a>
 </div>
+<script>
+    document.getElementById("bodyImg").style.backgroundImage = "url('/Content/images/createEdit.jpg')";
+</script>
