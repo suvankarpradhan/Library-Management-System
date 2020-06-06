@@ -9,12 +9,13 @@
         <strong>Success!</strong> Table Updated Successfully.
     </div>
 </div>
+<div class="list-inline pull-right">
+    <a class="btn btn-success" href="~/Transaction/Create" role="button">Add Record</a>
+    <a class="btn btn-warning" href="~/Transaction/Index" role="button">Back</a>
+</div>
 <h2>All Transactions</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.trans_id)
@@ -77,8 +78,11 @@
                 @Html.DisplayFor(modelItem => item.penalty)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.trans_id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.trans_id })
+                <a class="btn btn-info" href="~/Transaction/Edit?id=@item.trans_id" role="button">Edit</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="btn btn-danger" href="~/Transaction/Delete?id=@item.trans_id" role="button">Delete</a>
+                }
             </td>
         </tr>
     }

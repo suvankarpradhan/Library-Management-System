@@ -21,7 +21,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal" style="padding:30px;">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.emp_id)
 
@@ -91,15 +91,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
+                <a class="btn btn-warning" href="~/Employee/GetAllEmployees" role="button">Back</a>
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    <a class="btn btn-warning" href="~/Employee/GetAllEmployees" role="button">See All Employees</a>
-</div>
 <script>
     document.getElementById("bodyImg").style.backgroundImage = "url('/Content/images/createEditE.jpg')";
 </script>

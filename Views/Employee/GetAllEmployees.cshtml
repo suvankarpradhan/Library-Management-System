@@ -9,12 +9,13 @@
         <strong>Success!</strong> Table Updated Successfully.
     </div>
 </div>
+<div class="list-inline pull-right">
+    <a class="btn btn-success" href="~/Employee/Create" role="button">Create New</a>
+    <a class="btn btn-warning" href="~/Transaction/Index" role="button">Back</a>
+</div>
 <h2>All Employees</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.emp_id)

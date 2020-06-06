@@ -63,20 +63,24 @@ textarea {
     padding-top:50px;
     padding-bottom:50px;
 }
+.gallery {
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: Bahnschrift;
+}
 .bg-1 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
     color:white;
-}
-.gallery{
-    color:whitesmoke;
-    font-size:20px;
-    font-family: Bahnschrift;
 }
 .bg-2 {
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
 }
 .bg-3 {
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    color: darkslategrey;
+}
+.bg-4 {
     background-color: #ffffff;
     color: #555555;
 }

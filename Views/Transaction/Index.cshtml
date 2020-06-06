@@ -7,18 +7,36 @@
 
 <div class="container">
     <div class="col-md-6">
-        <div class="controlField">
-            <a href="~/Transaction/Create" class="btn btn-warning" role="button">Create New Record</a>
-        </div>
-        <div class="controlField">
-            <a href="~/Transaction/GetAllTransactions" class="btn btn-info" role="button">See All Transaction Records</a>
-        </div>
-        <div class="controlField">
-            <a href="~/Member/Create" class="btn btn-success" role="button">Create New Member Records</a>
-        </div>
-        <div class="controlField" style="padding-bottom:20px">
-            <a href="~/Book/GetAllBooks" class="btn btn-danger" role="button">See All Books Record</a>
-        </div>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="controlField">
+                <a href="~/Transaction/Create" class="btn btn-warning" role="button">Create New Record</a>
+            </div>
+            <div class="controlField">
+                <a href="~/Transaction/GetAllTransactions" class="btn btn-info" role="button">See All Transaction Records</a>
+            </div>
+            <div class="controlField">
+                <a href="~/Member/Create" class="btn btn-success" role="button">Add A New Member</a>
+            </div>
+            <div class="controlField" style="padding-bottom:20px">
+                <a href="~/Book/Create" class="btn btn-danger" role="button">Add A New Book</a>
+            </div>
+        }
+        else
+        {
+            <div class="controlField">
+                <a href="~/Transaction/Create" class="btn btn-warning" role="button">Create New Record</a>
+            </div>
+            <div class="controlField">
+                <a href="~/Transaction/GetAllTransactions" class="btn btn-info" role="button">See All Transaction Records</a>
+            </div>
+            <div class="controlField">
+                <a href="~/Member/Create" class="btn btn-success" role="button">Add A New Member</a>
+            </div>
+            <div class="controlField" style="padding-bottom:20px">
+                <a href="~/Book/GetAllBooks" class="btn btn-danger" role="button">See All Books Record</a>
+            </div>
+        }
     </div>
     <div class="col-md-6">
         <div class="transactionIndex">

@@ -158,6 +158,7 @@ function getHistory() {
             success: function (data) {
                 if (data == "[]") {
                     $("#historyTable tbody").empty();
+                    alert("No History available on this Id.")
                 } else {
                     data = JSON.parse(data);
                     $("#historyTable tbody").empty();

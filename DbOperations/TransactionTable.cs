@@ -101,5 +101,16 @@ namespace Library_Management_System.DbOperations
                 return record;
             }
         }
+
+        public bool DeleteTransaction(int Id)
+        {
+            using (var context = new Library_Management_SystemEntities())
+            {
+                var transaction = new transactionRecord() { trans_id = Id };
+                context.Entry(transaction).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+                return true;
+            }
+        }
     }
 }

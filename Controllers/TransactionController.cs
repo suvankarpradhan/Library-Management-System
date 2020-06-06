@@ -87,5 +87,11 @@ namespace Library_Management_System.Controllers
             var record = JsonConvert.SerializeObject(history);
             return Json(record, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Delete(int id)
+        {
+            transactionTable.DeleteTransaction(id);
+            return RedirectToAction("GetAllTransactions");
+        }
     }
 }

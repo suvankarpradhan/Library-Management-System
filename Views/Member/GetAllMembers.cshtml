@@ -9,12 +9,13 @@
         <strong>Success!</strong> Table Updated Successfully.
     </div>
 </div>
+<div class="list-inline pull-right">
+    <a class="btn btn-success" href="~/Member/Create" role="button">Add New Member</a>
+    <a class="btn btn-warning" href="~/Transaction/Index" role="button">Back</a>
+</div>
 <h2>All Members</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.mem_id)
@@ -41,10 +42,10 @@
                 @Html.DisplayFor(modelItem => item.mem_email)
             </td>
             <td>
-                <a class="btn btn-primary" href="~/Member/Edit?id=@item.mem_id" role="button">Edit</a>
                 <a onclick="getMemBerDetail(@item.mem_id)" class="btn btn-info" role="button">Detail</a>
                 @if (User.IsInRole("Admin"))
                 {
+                    <a class="btn btn-primary" href="~/Member/Edit?id=@item.mem_id" role="button">Edit</a>
                     <a class="btn btn-danger" href="~/Member/Delete?id=@item.mem_id" role="button">Delete</a>
                 }
             </td>

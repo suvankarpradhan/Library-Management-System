@@ -9,11 +9,16 @@
         <strong>Success!</strong> Table Updated Successfully.
     </div>
 </div>
+<div class="list-inline pull-right">
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-success" href="~/Book/Create" role="button">Create New</a>
+    }
+    <a class="btn btn-warning" href="~/Transaction/Index" role="button">Back</a>
+</div>
+
 <h2>All Books</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -41,13 +46,10 @@
                 @Html.DisplayFor(modelItem => item.author_name)
             </td>
             <td>
+                <a onclick="getBookDetail(@item.book_id)" class="btn btn-info" role="button">Detail</a>
                 @if (User.IsInRole("Admin"))
                 {
                     <a class="btn btn-primary" href="~/Book/Edit?id=@item.book_id" role="button">Edit</a>
-                }
-                 <a onclick="getBookDetail(@item.book_id)" class="btn btn-info" role="button">Detail</a>
-                @if (User.IsInRole("Admin"))
-                {
                     <a class="btn btn-danger" href="~/Book/Delete?id=@item.book_id" role="button">Delete</a>
                 }
             </td>
