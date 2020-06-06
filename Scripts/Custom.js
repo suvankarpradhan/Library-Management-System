@@ -1,7 +1,23 @@
-﻿function readMore() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
+﻿function readServices() {
+    var dots = document.getElementById("dots1");
+    var moreText = document.getElementById("more1");
+    var btnText = document.getElementById("myBtn1");
+
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more";
+        moreText.style.display = "none";
+    } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less";
+        moreText.style.display = "inline";
+    }
+}
+
+function readAbout() {
+    var dots = document.getElementById("dots2");
+    var moreText = document.getElementById("more2");
+    var btnText = document.getElementById("myBtn2");
 
     if (dots.style.display === "none") {
         dots.style.display = "inline";
@@ -145,9 +161,9 @@ function getHistory() {
                 } else {
                     data = JSON.parse(data);
                     $("#historyTable tbody").empty();
-                    var row = "<tr><th>Transaction Id</th><th>Book Name</th><th>Issue Date</th><th>Last Date</th><th>Penalty</th></tr>";
+                    var row = "<tr><th>Book Name</th><th>Issue Date</th><th>Last Date</th><th>Penalty</th></tr>";
                     $.each(data, function (i, v) {
-                        row += "<tr><td>" + v.trans_id + "</td><td>" + v.book_name + "</td><td>" + v.issue_date + "</td><td>" + v.last_date + "</td><td>" + v.penalty + "</td></tr>";
+                        row += "<tr><td>" + v.book_name + "</td><td>" + v.issue_date + "</td><td>" + v.last_date + "</td><td>" + v.penalty + "</td></tr>";
                     });
                     $("#historyTable").append(row);
                 }

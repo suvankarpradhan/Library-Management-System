@@ -2,14 +2,75 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<div class="bg-image">
+<div class="title-body">
     <div class="bg-text">
         <h1 style="font-size:50px">SUV LIBRARY</h1>
         <p class="lead">"Libraries store the energy that fuels the imagination. They open up windows to the world and inspire us to explore and achieve, and contribute to improving our quality of life."</p>
         <p><a href="" class="btn btn-primary btn-lg">Join now &raquo;</a></p>
     </div>
 </div>
-<div style="padding-top:20px">
+
+<div class="container-body bg-1 text-center">
+    <h1 class="margin">Gallery</h1><br>
+    <div class="row" style="padding-left:25px;padding-right:25px;">
+        <div class="col-sm-6">
+            <img src="~/Content/images/library.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+            <p class="gallery"><strong>Library</strong> contains huge number of book collection for the book lover.</p>
+        </div>
+        <div class="col-sm-6">
+            <img src="~/Content/images/smartStudyRoom.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+            <p class="gallery"><strong>Smart Stydy Room</strong> provides computer and wifi for gain knowlege easily with comfort.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-body bg-2" id="services">
+    <h1 class="margin text-center">Library Services</h1><br>
+    <p class="service">
+        <strong>Reference Service</strong>
+        <br />
+        In this section text books and conventional reference books are kept as ‘Reserve Collection’. Students and other members can take text or reference books from this section by depositing their ID card for reading and for Xeroxing within the library. These books are not lent out to the users against ID card.
+        <br /><br />
+        <strong>Inter Library Loan (ILL)</strong>
+        <br />
+        Being a member of two libraries within the State, namely Vidyasagar University and British Council Library, Kolkata.
+        <br /><br />
+        <strong>Photo Copying Facility / Reprography Service</strong>
+        <br />
+        Working hour: 9 A.M to 4 P.M
+        <br />
+        Photocopy / Xerox facility is available to all users inside the library to copy library materials, which are mainly treated as ‘confined’ or ‘reserved’ collections at a nominal charge by maintaining the reprography rules.
+        <br /><br />
+        <strong>User Awareness</strong>
+        <br />
+        User Arareness programmes are organised from time to time in the form of ‘Training’ and ‘Demonstration’ Programmes whenever any new service is started or expected to be adopted. Besides these, general guidances on ‘A Guide to the Library’ and ‘How to search OPAC’ and ‘Borrowing Rules for P.G. Students’ etc. are displayed through booklets, notifications or monitor screens.
+        <br /><br />
+        <span id="dots1">...</span>
+        <span id="more1">
+            <strong>Electronics Services</strong>
+            <br /><br />
+            <strong>24 X 7 Wi-Fi Internet Service</strong>
+            <br />
+            The Library has recently installed Wi-Fi service for all Student, Staff, Faculty and Other College Members. This service is available 24 X 7 in the entire library area free of cost.
+            <br /><br />
+            <strong>Online Public Access Catalogue</strong>
+            <br />
+            Online Public Access Catalog (often abbreviated as OPAC or simply library catalog) is an online database of materials held by the Central Library, Midnapore College (Autonomous). Any member can search the whereabouts and bibliographical details of the resource materials acquired and registered in this library like print books, print journals etc.
+            <br /><br />
+            <strong>CD / DVD Mirror Server.</strong>
+            <br />
+            In this system we preserve various CD/DVD available with the purchased Hard Copy Books and Magazines, Circular, Order, Notices, and Old Question Papers etc.
+            <br /><br />
+            <strong>Print Service</strong>
+            <br />
+            Print Service is rendered (Black and White) to the registered users for any type of documents of Rs. 1.00 per impression.
+            <br />
+        </span>
+        <a onclick="readServices()" id="myBtn1" style="color:mediumspringgreen">Read more</a>
+    </p>
+</div>
+
+<div class="container-body bg-1">
     <div class="panel panel-success">
         <div class="panel-heading">
             <div class="form-inline">
@@ -18,13 +79,14 @@
                 <input type="button" onclick="getBooks()" class="btn btn-info" value="Search" />
             </div>
         </div>
-        <table class="table" id="bookTable">
+        <table class="table table-bordered" id="bookTable">
             <thead></thead>
             <tbody></tbody>
         </table>
     </div>
 </div>
-<div style="padding-top:10px">
+
+<div class="container-body bg-1">
     <div class="panel panel-success">
         <div class="panel-heading">
             <div class="form-inline">
@@ -33,9 +95,55 @@
                 <input type="button" onclick="getHistory()" class="btn btn-info" value="Search" />
             </div>
         </div>
-        <table class="table" id="historyTable">
+        <table class="table table-bordered"
+               id="historyTable">
             <thead></thead>
             <tbody></tbody>
         </table>
     </div>
 </div>
+
+<div class="container-body bg-3" id="about">
+    <h1 class="margin text-center">ABOUT US</h1>
+    <div class="row" style="padding-top:20px">
+        <div class="col-md-6" style="padding:35px;">
+            <div class="col-md-4" style="margin-left:25px;">
+                <img src="~/Content/images/Admin.png" width="128" height="198" />
+            </div>
+            <div class="col-md-offset-4">
+                <p style="font-size:20px;">
+                    <br /><br />
+                    <b>Suvankar Pradhan</b>
+                </p>
+                <p>Creator of this site</p>
+                <p>(Library Management site, SUV Library)</p>
+            </div>
+        </div>
+        <div class="col-md-6" style="border-left:2px solid lightgray;padding:35px;">
+            <h3>SUV Library</h3>
+            <p style="margin-right:10px;">
+                The SUV Library, foremost among the libraries in India, is one of the four designated libraries entitled to receive under the Delivery of Books and Newspapers (Public Libraries) Act, 1954 a copy of every publication published anywhere in the country.
+                The library is a permanent depository of all reading and printed materials produced in India, or written by any foreigner, wherever published and in whatever language.
+                <span id="dots2">...</span><br />
+                <span id="more2">
+                    The origin of the SUV Library is traced to the former Calcutta Public Library, established in the first half of the 19th century.
+                    The Calcutta Public Library was established largely at the initiative of Mr. J. H. Stoqueler, the Editor of the Englishman.
+                </span>
+            </p>
+            <p><a class="btn btn-default" onclick="readAbout()" id="myBtn2">Read more</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="container-contact bg-2" id="contact">
+    <h1>Contact</h1><br />
+    <div class="address">
+        <p>Digha, 700000</p>
+        <p><strong>Email. </strong><a style="color:aqua;" href="#">suvankarpradhan0@gmail.com</a></p>
+        <p><strong>Phone. </strong>0123456789</p>
+    </div>
+</div> 
+
+<script>
+    document.getElementById("bodyImg").style.backgroundImage = "url('/Content/images/homeBody.jpg')";
+</script>
