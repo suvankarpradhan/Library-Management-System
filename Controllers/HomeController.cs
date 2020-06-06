@@ -23,12 +23,5 @@ namespace Library_Management_System.Controllers
                 return View();
             }
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
