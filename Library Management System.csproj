@@ -186,8 +186,8 @@
     <Content Include="Content\images\createEditM.jpg" />
     <Content Include="Content\images\createEditT.jpg" />
     <Content Include="Content\images\homeBody.jpg" />
-    <Content Include="Content\images\login.jpg" />
     <Content Include="Content\images\library.jpg" />
+    <Content Include="Content\images\login.jpg" />
     <Content Include="Content\images\smartStudyRoom.jpg" />
     <Content Include="Content\images\transactionIndex.jpg" />
     <Content Include="DbModel\Models.Context.tt">
@@ -213,6 +213,7 @@
     <Content Include="DbModel\Models.edmx.diagram">
       <DependentUpon>Models.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\download\SUV LIBRARY.pdf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
