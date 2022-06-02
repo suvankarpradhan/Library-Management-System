@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b1a551ed6f4542af9a46edc5d5207944" Name="Diagram1">
-        <EntityTypeShape EntityType="LibraryModel.bookRecod" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.employeeRecord" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.memberRecord" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.transactionRecord" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="3c696f9ba5804237a6ffdbf992e0a1cd" Name="Diagram1">
+        <EntityTypeShape EntityType="Library_Management_SystemModel.bookRecod" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_Management_SystemModel.employeeRecord" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_Management_SystemModel.memberRecord" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_Management_SystemModel.transactionRecord" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -69,7 +69,8 @@
         <div class="form-group" onmousedown="getEmpInfo()">
             <div class="col-md-offset-2 col-md-10">
                 <input type="button" value="Add Book Name" class="btn btn-primary" onclick="getBookName()" />
-                <input type="submit" value="Create" class="btn btn-success" onclick="setLastDate()" />
+                <input type="submit" value="Create" class="btn btn-success" onclick="setLastDate()" id="create_transaction_btn"/>
+                <p id="bookAvailableOrNot" style="color:darkred;display:none">Selected book is not Available</p>
             </div>
         </div>
     </div>

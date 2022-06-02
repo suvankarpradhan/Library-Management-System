@@ -192,9 +192,10 @@
     <Content Include="Content\images\transactionIndex.jpg" />
     <Content Include="DbModel\Models.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Models.Context.cs</LastGenOutput>
       <DependentUpon>Models.edmx</DependentUpon>
+      <LastGenOutput>Models.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="DbModel\Models.edmx.sql" />
     <Content Include="DbModel\Models.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Models.edmx</DependentUpon>
@@ -206,6 +207,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\download\SUV LIBRARY.pdf" />
     <EntityDeploy Include="DbModel\Models.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Models.Designer.cs</LastGenOutput>
@@ -213,7 +215,6 @@
     <Content Include="DbModel\Models.edmx.diagram">
       <DependentUpon>Models.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\download\SUV LIBRARY.pdf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

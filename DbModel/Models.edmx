@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Library_Management_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="bookRecod">
           <Key>
             <PropertyRef Name="book_id" />
@@ -14,6 +14,7 @@
           <Property Name="author_name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="copies" Type="int" Nullable="false" />
+          <Property Name="available_copies" Type="int" />
         </EntityType>
         <EntityType Name="employeeRecord">
           <Key>
@@ -46,13 +47,13 @@
           <Property Name="emp_id" Type="int" Nullable="false" />
           <Property Name="book_id" Type="int" Nullable="false" />
           <Property Name="mem_id" Type="int" Nullable="false" />
-          <Property Name="issue_date" Type="date" Nullable="false" />
-          <Property Name="return_date" Type="date" Nullable="false" />
-          <Property Name="last_date" Type="date" Nullable="false" />
+          <Property Name="issue_date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="return_date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="last_date" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="penalty" Type="varchar" MaxLength="50" />
           <Property Name="book_name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityContainer Name="LibraryModelStoreContainer">
+        <EntityContainer Name="Library_Management_SystemModelStoreContainer">
           <EntitySet Name="bookRecod" EntityType="Self.bookRecod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="employeeRecord" EntityType="Self.employeeRecord" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="memberRecord" EntityType="Self.memberRecord" Schema="dbo" store:Type="Tables" />
@@ -61,7 +62,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Library_Management_SystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="bookRecod">
           <Key>
             <PropertyRef Name="book_id" />
@@ -71,6 +72,7 @@
           <Property Name="author_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="copies" Type="Int32" Nullable="false" />
+          <Property Name="available_copies" Type="Int32" />
         </EntityType>
         <EntityType Name="employeeRecord">
           <Key>
@@ -83,7 +85,7 @@
           <Property Name="emp_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="emp_add" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="memberRecord">
           <Key>
@@ -103,9 +105,9 @@
           <Property Name="emp_id" Type="Int32" Nullable="false" />
           <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="mem_id" Type="Int32" Nullable="false" />
-          <Property Name="issue_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="return_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="last_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="issue_date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="return_date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="last_date" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="penalty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="book_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -119,62 +121,62 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="Library_Management_SystemEntities">
-          <EntitySetMapping Name="bookRecod">
-            <EntityTypeMapping TypeName="LibraryModel.bookRecod">
-              <MappingFragment StoreEntitySet="bookRecod">
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Library_Management_SystemModelStoreContainer" CdmEntityContainer="Library_Management_SystemEntities">
+    <EntitySetMapping Name="bookRecod">
+      <EntityTypeMapping TypeName="IsTypeOf(Library_Management_SystemModel.bookRecod)">
+        <MappingFragment StoreEntitySet="bookRecod">
+          <ScalarProperty Name="available_copies" ColumnName="available_copies" />
                 <ScalarProperty Name="book_id" ColumnName="book_id" />
-                <ScalarProperty Name="book_name" ColumnName="book_name" />
-                <ScalarProperty Name="author_name" ColumnName="author_name" />
-                <ScalarProperty Name="category" ColumnName="category" />
-                <ScalarProperty Name="copies" ColumnName="copies" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="employeeRecord">
-            <EntityTypeMapping TypeName="LibraryModel.employeeRecord">
-              <MappingFragment StoreEntitySet="employeeRecord">
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="role" ColumnName="role" />
-                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
-                <ScalarProperty Name="emp_name" ColumnName="emp_name" />
-                <ScalarProperty Name="emp_email" ColumnName="emp_email" />
-                <ScalarProperty Name="emp_phone" ColumnName="emp_phone" />
-                <ScalarProperty Name="emp_pass" ColumnName="emp_pass" />
-                <ScalarProperty Name="emp_add" ColumnName="emp_add" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="memberRecord">
-            <EntityTypeMapping TypeName="LibraryModel.memberRecord">
-              <MappingFragment StoreEntitySet="memberRecord">
-                <ScalarProperty Name="mem_id" ColumnName="mem_id" />
-                <ScalarProperty Name="mem_name" ColumnName="mem_name" />
-                <ScalarProperty Name="mem_email" ColumnName="mem_email" />
-                <ScalarProperty Name="mem_phone" ColumnName="mem_phone" />
-                <ScalarProperty Name="mem_add" ColumnName="mem_add" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="transactionRecord">
-            <EntityTypeMapping TypeName="LibraryModel.transactionRecord">
-              <MappingFragment StoreEntitySet="transactionRecord">
-                <ScalarProperty Name="book_name" ColumnName="book_name" />
-                <ScalarProperty Name="trans_id" ColumnName="trans_id" />
-                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
-                <ScalarProperty Name="book_id" ColumnName="book_id" />
-                <ScalarProperty Name="mem_id" ColumnName="mem_id" />
-                <ScalarProperty Name="issue_date" ColumnName="issue_date" />
-                <ScalarProperty Name="return_date" ColumnName="return_date" />
-                <ScalarProperty Name="last_date" ColumnName="last_date" />
-                <ScalarProperty Name="penalty" ColumnName="penalty" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="author_name" ColumnName="author_name" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="copies" ColumnName="copies" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employeeRecord">
+      <EntityTypeMapping TypeName="IsTypeOf(Library_Management_SystemModel.employeeRecord)">
+        <MappingFragment StoreEntitySet="employeeRecord">
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          <ScalarProperty Name="emp_email" ColumnName="emp_email" />
+          <ScalarProperty Name="emp_phone" ColumnName="emp_phone" />
+          <ScalarProperty Name="emp_pass" ColumnName="emp_pass" />
+          <ScalarProperty Name="emp_add" ColumnName="emp_add" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="memberRecord">
+      <EntityTypeMapping TypeName="IsTypeOf(Library_Management_SystemModel.memberRecord)">
+        <MappingFragment StoreEntitySet="memberRecord">
+          <ScalarProperty Name="mem_id" ColumnName="mem_id" />
+          <ScalarProperty Name="mem_name" ColumnName="mem_name" />
+          <ScalarProperty Name="mem_email" ColumnName="mem_email" />
+          <ScalarProperty Name="mem_phone" ColumnName="mem_phone" />
+          <ScalarProperty Name="mem_add" ColumnName="mem_add" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactionRecord">
+      <EntityTypeMapping TypeName="IsTypeOf(Library_Management_SystemModel.transactionRecord)">
+        <MappingFragment StoreEntitySet="transactionRecord">
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="mem_id" ColumnName="mem_id" />
+          <ScalarProperty Name="issue_date" ColumnName="issue_date" />
+          <ScalarProperty Name="return_date" ColumnName="return_date" />
+          <ScalarProperty Name="last_date" ColumnName="last_date" />
+          <ScalarProperty Name="penalty" ColumnName="penalty" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -188,7 +190,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

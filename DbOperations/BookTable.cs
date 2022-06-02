@@ -18,7 +18,8 @@ namespace Library_Management_System.DbOperations
                     book_name = record.book_name,
                     author_name = record.author_name,
                     category = record.category,
-                    copies = record.copies
+                    copies = record.copies,
+                    available_copies = record.copies
                 };
                 context.bookRecod.Add(book);
                 context.SaveChanges();
@@ -45,7 +46,8 @@ namespace Library_Management_System.DbOperations
                 var record = context.bookRecod.Where(b => b.category == category).Select(b => new BookRecord()
                 {
                     book_name = b.book_name,
-                    author_name = b.author_name
+                    author_name = b.author_name,
+                    available_copies=b.available_copies
                 }).ToList();
                 return record;
             }
@@ -60,7 +62,8 @@ namespace Library_Management_System.DbOperations
                     book_name = b.book_name,
                     author_name = b.author_name,
                     category = b.category,
-                    copies = b.copies
+                    copies = b.copies,
+                    available_copies=b.available_copies
                 }).FirstOrDefault();
                 return record;
             }

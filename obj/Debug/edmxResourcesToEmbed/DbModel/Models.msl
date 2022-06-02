@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="Library_Management_SystemEntities">
+  <EntityContainerMapping StorageEntityContainer="Library_Management_SystemModelStoreContainer" CdmEntityContainer="Library_Management_SystemEntities">
     <EntitySetMapping Name="bookRecod">
-      <EntityTypeMapping TypeName="LibraryModel.bookRecod">
+      <EntityTypeMapping TypeName="IsTypeOf(Library_Management_SystemModel.bookRecod)">
         <MappingFragment StoreEntitySet="bookRecod">
+          <ScalarProperty Name="available_copies" ColumnName="available_copies" />
           <ScalarProperty Name="book_id" ColumnName="book_id" />
           <ScalarProperty Name="book_name" ColumnName="book_name" />
           <ScalarProperty Name="author_name" ColumnName="author_name" />
@@ -13,21 +14,21 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="employeeRecord">
-      <EntityTypeMapping TypeName="LibraryModel.employeeRecord">
+      <EntityTypeMapping TypeName="IsTypeOf(Library_Management_SystemModel.employeeRecord)">
         <MappingFragment StoreEntitySet="employeeRecord">
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="role" ColumnName="role" />
           <ScalarProperty Name="emp_id" ColumnName="emp_id" />
           <ScalarProperty Name="emp_name" ColumnName="emp_name" />
           <ScalarProperty Name="emp_email" ColumnName="emp_email" />
           <ScalarProperty Name="emp_phone" ColumnName="emp_phone" />
           <ScalarProperty Name="emp_pass" ColumnName="emp_pass" />
           <ScalarProperty Name="emp_add" ColumnName="emp_add" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="username" ColumnName="username" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="memberRecord">
-      <EntityTypeMapping TypeName="LibraryModel.memberRecord">
+      <EntityTypeMapping TypeName="IsTypeOf(Library_Management_SystemModel.memberRecord)">
         <MappingFragment StoreEntitySet="memberRecord">
           <ScalarProperty Name="mem_id" ColumnName="mem_id" />
           <ScalarProperty Name="mem_name" ColumnName="mem_name" />
@@ -38,9 +39,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="transactionRecord">
-      <EntityTypeMapping TypeName="LibraryModel.transactionRecord">
+      <EntityTypeMapping TypeName="IsTypeOf(Library_Management_SystemModel.transactionRecord)">
         <MappingFragment StoreEntitySet="transactionRecord">
-          <ScalarProperty Name="book_name" ColumnName="book_name" />
           <ScalarProperty Name="trans_id" ColumnName="trans_id" />
           <ScalarProperty Name="emp_id" ColumnName="emp_id" />
           <ScalarProperty Name="book_id" ColumnName="book_id" />
@@ -49,6 +49,7 @@
           <ScalarProperty Name="return_date" ColumnName="return_date" />
           <ScalarProperty Name="last_date" ColumnName="last_date" />
           <ScalarProperty Name="penalty" ColumnName="penalty" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

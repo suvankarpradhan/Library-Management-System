@@ -7,7 +7,7 @@ using Library_Management_System.DbModel;
 
 namespace Library_Management_System.DbOperations
 {
-    public class TransactionTable
+    public class TransactionTable:BookTable
     {
         public int AddTransaction(TransactionRecord record)
         {
@@ -26,6 +26,18 @@ namespace Library_Management_System.DbOperations
                 };
                 context.transactionRecord.Add(tran);
                 context.SaveChanges();
+
+                BookRecord _record = GetBook(record.book_id);
+
+                bookRecod book = new bookRecod() { book_id = record.book_id };
+                book.author_name = _record.author_name;
+                book.book_name = _record.book_name;
+                book.category = _record.category;
+                book.copies = _record.copies;
+                book.available_copies = _record.available_copies - 1;
+                context.Entry(book).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+
                 return tran.trans_id;
             }
 
@@ -45,6 +57,18 @@ namespace Library_Management_System.DbOperations
                 transaction.book_name = record.book_name;
                 context.Entry(transaction).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
+
+                BookRecord _record = GetBook(record.book_id);
+
+                bookRecod book = new bookRecod() { book_id = record.book_id };
+                book.author_name = _record.author_name;
+                book.book_name = _record.book_name;
+                book.category = _record.category;
+                book.copies = _record.copies;
+                book.available_copies = _record.available_copies + 1;
+                context.Entry(book).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+
                 return true;
             }
         }

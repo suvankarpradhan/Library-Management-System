@@ -114,9 +114,10 @@ function getBooks() {
         success: function (data) {
             data = JSON.parse(data);
             $("#bookTable tbody").empty();
-            var row = "<tr><th>Book Name</th><th>Author Name</th></tr>";
+            var row = "<tr><th>Book Name</th><th>Author Name</th><th>Status</th></tr>";
             $.each(data, function (i, v) {
-                row += "<tr><td>" + v.book_name + "</td><td>" + v.author_name + "</td></tr>";
+                let status = v.available_copies > 0 ? "Available" : "Not Available";
+                row += "<tr><td>" + v.book_name + "</td><td>" + v.author_name + "</td><td>" + status + "</td></tr> ";
             });
             $("#bookTable").append(row);
         },
@@ -136,6 +137,13 @@ function getBookName() {
             data = JSON.parse(data);
             if (data != null) {
                 document.getElementById("book_name").value = data.book_name;
+                if (data.available_copies > 0) {
+                    $('#create_transaction_btn').css('display','inline-block');
+                    $('#bookAvailableOrNot').css('display', 'none');
+                } else {
+                    $('#create_transaction_btn').css('display', 'none');
+                    $('#bookAvailableOrNot').css('display', 'inline-block');
+                }
             } else {
                 alert("Invalid Book Id");
                 document.getElementById("book_name").value = "";
@@ -228,10 +236,11 @@ function getBookDetail(id) {
         data: "id=" + id,
         success: function (data) {
             data = JSON.parse(data);
-            let info = "<p><strong>Book Name : </strong>" + data.book_name +
+            let info = "<strong>Book Name : </strong>" + data.book_name +
                 "<br/><strong>Author Name : </strong>" + data.author_name +
                 "<br/><strong>Category : </strong>" + data.category +
-                "<br/><strong>Total Copy : </strong>" + data.copies + "</p>";
+                "<br/><strong>Total Copy : </strong>" + data.copies +
+                "<br/><strong>Available Copy : </strong>" + data.available_copies ;
             $("#bookinfo").html(info);
             $("#bookDetail").modal();
         },

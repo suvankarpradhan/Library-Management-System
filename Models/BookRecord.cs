@@ -22,5 +22,6 @@ namespace Library_Management_System.Models
 
         [Required(ErrorMessage ="Please Enter number of Copies")][Display(Name = "No of Copies")]
         public int copies { get; set; }
+        public int? available_copies { get; set; }
     }
 }

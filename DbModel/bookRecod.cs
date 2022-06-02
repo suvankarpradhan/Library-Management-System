@@ -19,5 +19,6 @@ namespace Library_Management_System.DbModel
         public string author_name { get; set; }
         public string category { get; set; }
         public int copies { get; set; }
+        public Nullable<int> available_copies { get; set; }
     }
 }
