@@ -2,7 +2,7 @@
 This is a simple Library Management System based on ASP.NET MVC architecture. For create this site more interactive Javascript is used.
 
 Features:
--Anyone can search books by selecting book category.
+-Anyone can search books by selecting book category and also can see whether selected book available or not.
 -Library's member can see their book drawn or book transaction history.
 -This site can hold record of books, library members, employees or librarians and ofcourse the trasaction detail.
 -Automatic set return date when a book is issued.
